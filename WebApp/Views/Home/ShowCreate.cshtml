@@ -1,0 +1,35 @@
+﻿@model DAL.Models.Nhanvien
+@{
+    ViewData["Title"] = "Home Page";
+}
+<form asp-controller="Home" asp-action="Create" method="post">
+    <table>
+        <tr>
+            <td>Ma NV: </td>
+            <td><input type="text" asp-for="MaNv" /></td>
+        </tr>
+        <tr>
+            <td>TenNhanVien </td>
+            <td><input type="text" asp-for="TenNv" /></td>
+        </tr>
+         <tr>
+            <td>SDT </td>
+            <td><input type="text" asp-for="Sdt" /></td>
+        </tr>
+        <tr>
+            <td>taikhoan </td>
+            <td><input type="text" asp-for="TaiKhoan" /></td>
+        </tr>
+        <tr>
+            <td>pass </td>
+            <td><input type="password" asp-for="MatKhau" /></td>
+        </tr>
+        <tr>
+            <td>Quyen </td>
+            <td><input type="text" asp-for="QuyenSd" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Submit Form" /></td>
+        </tr>
+    </table>
+</form>

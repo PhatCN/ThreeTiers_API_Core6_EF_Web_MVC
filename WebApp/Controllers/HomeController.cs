@@ -37,10 +37,16 @@ namespace WebApp.Controllers
             //List<Nhanvien> listNhanVien = await _context.Nhanviens.ToListAsync();
             return View(listNhanVien);
         }
+        [HttpGet]
+        public IActionResult ShowCreate()
+        {
+            return View(new Nhanvien());
+        }
+        [HttpPost]
         public  IActionResult Create(Nhanvien nhanvien)
         {
             _nhanVienServices.CreateNhanVien(nhanvien);
-            return View();
+            return RedirectToAction("Listnhanvien","Home");
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
