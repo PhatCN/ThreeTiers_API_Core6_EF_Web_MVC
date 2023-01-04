@@ -1,6 +1,8 @@
 ﻿using BLL.Services.Contracts;
+using DAL.DataContext;
 using DAL.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using WebApp.Models;
 
@@ -10,11 +12,13 @@ namespace WebApp.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly INhanVienServices _nhanVienServices;
+        private readonly test_3_tier_core_6Context _context;
 
-        public HomeController(ILogger<HomeController> logger, INhanVienServices nhanVienServices)
+        public HomeController(ILogger<HomeController> logger, INhanVienServices nhanVienServices,test_3_tier_core_6Context context)
         {
             _logger = logger;
             _nhanVienServices= nhanVienServices;
+            _context= context;
         }
 
         public IActionResult Index()
@@ -28,7 +32,8 @@ namespace WebApp.Controllers
         }
         public async Task<IActionResult> ListNhanVien()
         {
-            List<Nhanvien> listNhanVien = await _nhanVienServices.GetNhanviens();
+            //List<Nhanvien> listNhanVien = await _nhanVienServices.GetNhanviens();
+            List<Nhanvien> listNhanVien = await _context.Nhanviens.ToListAsync();
             return View(listNhanVien);
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

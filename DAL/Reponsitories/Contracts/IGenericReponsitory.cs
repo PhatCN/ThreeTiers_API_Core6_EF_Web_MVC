@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,5 +10,6 @@ namespace DAL.Reponsitories.Contracts
     public interface IGenericReponsitory<TModel> where TModel : class
     {
         Task<List<TModel>> GetNhanVien();
+        Task<TModel> CreateNhanVien();
     }
 }

@@ -17,6 +17,12 @@ namespace DAL.Reponsitories
         { 
             _context= context;
         }
+
+        public Task<TModel> CreateNhanVien()
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<List<TModel>> GetNhanVien()
         {
             try
