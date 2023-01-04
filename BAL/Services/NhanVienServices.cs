@@ -18,6 +18,19 @@ namespace BLL.Services
             _reponsitory= reponsitory;
         }
 
+        public void CreateNhanVien(Nhanvien nhanvien)
+        {
+            try
+            {
+                _reponsitory.CreateNhanVien(nhanvien);
+            }
+            catch
+            {
+                throw new NotImplementedException();
+            }
+            
+        }
+
         public async Task<List<Nhanvien>> GetNhanviens()
         {
             try

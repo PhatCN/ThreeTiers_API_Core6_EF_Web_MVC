@@ -18,9 +18,18 @@ namespace DAL.Reponsitories
             _context= context;
         }
 
-        public Task<TModel> CreateNhanVien()
+        public void CreateNhanVien(TModel model)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _context.Set<TModel>().Add(model);
+                _context.SaveChanges();
+            }
+            catch
+            {
+                throw new NotImplementedException();
+            }
+            
         }
 
         public async Task<List<TModel>> GetNhanVien()

@@ -32,9 +32,21 @@ namespace WebApp.Controllers
         }
         public async Task<IActionResult> ListNhanVien()
         {
-            //List<Nhanvien> listNhanVien = await _nhanVienServices.GetNhanviens();
-            List<Nhanvien> listNhanVien = await _context.Nhanviens.ToListAsync();
+            List<Nhanvien> listNhanVien = await _nhanVienServices.GetNhanviens();
+            Nhanvien nv = new Nhanvien();
+            nv.MaNv = "00052";
+            nv.TenNv = "abc";
+            nv.TaiKhoan = "asdasdfa";
+            nv.MatKhau = "sdgfds";
+            nv.QuyenSd = 1;
+            Create(nv);
+            //List<Nhanvien> listNhanVien = await _context.Nhanviens.ToListAsync();
             return View(listNhanVien);
+        }
+        public  IActionResult Create(Nhanvien nhanvien)
+        {
+            _nhanVienServices.CreateNhanVien(nhanvien);
+            return View();
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

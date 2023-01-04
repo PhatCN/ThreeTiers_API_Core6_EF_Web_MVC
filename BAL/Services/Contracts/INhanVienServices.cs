@@ -10,5 +10,6 @@ namespace BLL.Services.Contracts
     public interface INhanVienServices
     {
         Task<List<Nhanvien>> GetNhanviens();
+        void CreateNhanVien(Nhanvien nhanvien);
     }
 }

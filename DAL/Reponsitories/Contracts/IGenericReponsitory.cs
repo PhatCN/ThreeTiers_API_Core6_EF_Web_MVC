@@ -10,6 +10,6 @@ namespace DAL.Reponsitories.Contracts
     public interface IGenericReponsitory<TModel> where TModel : class
     {
         Task<List<TModel>> GetNhanVien();
-        Task<TModel> CreateNhanVien();
+        void CreateNhanVien(TModel model);
     }
 }
