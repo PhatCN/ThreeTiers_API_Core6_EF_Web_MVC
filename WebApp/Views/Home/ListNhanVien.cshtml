@@ -1,11 +1,45 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿
 @model List<DAL.Models.Nhanvien>
-
-@foreach(var nv in Model)
-{
-    <h1>@nv.TenNv</h1>
-}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+<table class="table">
+      <thead>
+        <tr style="background-image:url(data:image/jpeg;base64,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)">
+              <th>
+                <h4 class="text-info"> Danh sách nhân viên</h4>
+              </th>
+            <th>
+                <a asp-controller="Home" asp-action="ShowCreate" class="btn btn-success">Thêm mới</a>
+              </th>
+          </tr>
+      </thead>
+  </table> 
+<table class="table">
+  <thead>
+        <tr style="background:Gray;">
+      <th scope="col">#</th>
+      <th scope="col">Họ tên</th>
+      <th scope="col">Số điện thoại</th>
+      <th scope="col">Tài khoản</th>
+      <th> </th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+        @foreach (var nv in Model)
+        {
+            <tr style="background:#80bfff">
+                <td>@nv.MaNv</td>
+                <td>@nv.TenNv</td>
+                <td>@nv.Sdt</td>
+                <td>@nv.TaiKhoan</td>
+                 <td>
+                    <a asp-controller="Home" asp-action="ShowUpdate" asp-route-id="@nv.MaNv"><i class="bi bi-pencil"></i> </a>                   
+                </td>
+                <td>
+                    <a asp-controller="Home" asp-action="Delete" asp-route-id="@nv.MaNv"><i class="bi bi-trash"></i> </a>
+                </td>
+               
+            </tr>
+        }
+  </tbody>
+</table>

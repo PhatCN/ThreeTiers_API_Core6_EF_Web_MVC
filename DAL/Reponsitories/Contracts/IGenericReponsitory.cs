@@ -11,5 +11,8 @@ namespace DAL.Reponsitories.Contracts
     {
         Task<List<TModel>> GetNhanVien();
         void CreateNhanVien(TModel model);
+        void UpdateNhanVien(TModel model);
+        void DeleteNhanVien(string id);
+        Task<TModel> DetailsNhanVien(string? id);
     }
 }

@@ -31,6 +31,31 @@ namespace BLL.Services
             
         }
 
+        public void DeleteNhanVien(string id)
+        {
+            try
+            {
+                _reponsitory.DeleteNhanVien(id);
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public Task<Nhanvien> Details(string id)
+        {
+            try
+            {
+               return _reponsitory.DetailsNhanVien(id);
+            }
+            catch(Exception ex)
+            {
+                throw;
+            }
+
+        }
+
         public async Task<List<Nhanvien>> GetNhanviens()
         {
             try
@@ -40,6 +65,19 @@ namespace BLL.Services
             catch 
             { 
                 throw new NotImplementedException(); 
+            }
+            
+        }
+
+        public void UpdateNhanVien(Nhanvien nhanvien)
+        {
+            try
+            {
+                _reponsitory.UpdateNhanVien(nhanvien);
+            }
+            catch
+            {
+                throw new NotImplementedException();
             }
             
         }

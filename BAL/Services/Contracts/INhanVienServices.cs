@@ -11,5 +11,8 @@ namespace BLL.Services.Contracts
     {
         Task<List<Nhanvien>> GetNhanviens();
         void CreateNhanVien(Nhanvien nhanvien);
+        void UpdateNhanVien(Nhanvien nhanvien);
+        Task<Nhanvien> Details(string id);
+        void DeleteNhanVien(string id);
     }
 }

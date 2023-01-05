@@ -48,6 +48,26 @@ namespace WebApp.Controllers
             _nhanVienServices.CreateNhanVien(nhanvien);
             return RedirectToAction("Listnhanvien","Home");
         }
+        public IActionResult ShowUpdate(string id) 
+        {      
+            var nv = _context.Nhanviens.FirstOrDefault(s => s.MaNv == id);
+            return View(nv);
+        }
+        public IActionResult Update(Nhanvien nhanvien)
+        {
+            _nhanVienServices.UpdateNhanVien(nhanvien);
+            return RedirectToAction("Listnhanvien", "Home");
+        }
+       public IActionResult ShowDelete(string id)
+        {
+            var nv = _context.Nhanviens.FirstOrDefault(s => s.MaNv == id);
+            return View(nv);
+        }
+        public IActionResult Delete(string id) 
+        {
+            _nhanVienServices.DeleteNhanVien(id);
+            return RedirectToAction("ListNhanvien", "home");
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

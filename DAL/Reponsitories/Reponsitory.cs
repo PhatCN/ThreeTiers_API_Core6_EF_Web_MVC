@@ -32,16 +32,57 @@ namespace DAL.Reponsitories
             
         }
 
+        public void DeleteNhanVien(string id)
+        {
+            try 
+            {        
+                var nv = _context.Set<TModel>().Find(id);
+                _context.Set<TModel>().Remove(nv);
+                _context.SaveChanges();
+            }
+            catch 
+            { 
+                throw; 
+            }
+
+        }
+
+        public async Task<TModel> DetailsNhanVien(string? id)
+        {
+            try
+            {
+                    return await _context.Set<TModel>().FindAsync(id);
+            }
+            catch(Exception ex)
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public async Task<List<TModel>> GetNhanVien()
         {
             try
             {
-                return await _context.Set<TModel>().ToListAsync();
+               return await _context.Set<TModel>().ToListAsync();
             }
             catch
             {
-                throw;
-            }           
+                throw new NotImplementedException();
+            }
+            
+        }
+
+        public void UpdateNhanVien(TModel model)
+        {
+            try
+            {
+                _context.Set<TModel>().Update(model);
+                _context.SaveChanges();
+            }
+            catch
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 }
